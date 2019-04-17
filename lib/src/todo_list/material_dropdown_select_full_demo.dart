@@ -14,6 +14,7 @@ import 'package:angular_components/material_icon/material_icon.dart';
 import 'package:angular_components/material_input/material_input.dart';
 import 'package:angular_components/material_select/dropdown_button.dart';
 import 'package:angular_components/material_select/material_dropdown_select.dart';
+import 'package:angular_components/material_select/material_select_dropdown_item.dart';
 import 'package:angular_components/material_select/material_dropdown_select_accessor.dart';
 import 'package:angular_components/material_select/material_select_searchbox.dart';
 import 'package:angular_components/model/selection/select.dart';
@@ -22,6 +23,8 @@ import 'package:angular_components/model/selection/selection_options.dart';
 import 'package:angular_components/model/selection/string_selection_options.dart';
 import 'package:angular_components/model/ui/display_name.dart';
 import 'package:angular_components/model/ui/has_factory.dart';
+import 'package:angular/angular.dart';
+import 'package:angular_components/angular_components.dart';
 
 import 'material_dropdown_select_full_demo.template.dart' as demo;
 
@@ -30,18 +33,21 @@ import 'material_dropdown_select_full_demo.template.dart' as demo;
   selector: 'material-dropdown-select-full-demo',
   // popupBindings should ideally be in a top level or root component.
   // In demos, this is the top level/root component.
-  providers: const [popupBindings],
+  providers: const [popupBindings, materialProviders],
   directives: [
     materialInputDirectives,
     MaterialCheckboxComponent,
     MaterialDropdownSelectComponent,
     MaterialSelectSearchboxComponent,
     DropdownSelectValueAccessor,
+    MaterialSelectDropdownItemComponent,
     MultiDropdownSelectValueAccessor,
     NgModel,
     NgIf,
+    NgFor,
     DropdownButtonComponent,
   ],
+//  directiveTypes: [Typed<MaterialDropdownSelectComponent<Language>>()],
   templateUrl: 'material_dropdown_select_full_demo.html',
   styleUrls: ['material_dropdown_select_demo.css'],
   preserveWhitespace: true,
@@ -110,14 +116,15 @@ class MaterialDropdownSelectFullDemoComponent {
     RelativePosition.AdjacentBottomRight
   ];
 
-  static ItemRenderer<Language> _displayNameRenderer =
-      (HasUIDisplayName item) => item.uiDisplayName;
+  static ItemRenderer _displayNameRenderer =
+  (item) => (item as HasUIDisplayName).uiDisplayName;
+
 
   // Specifying an itemRenderer avoids the selected item from knowing how to
   // display itself.
-  static ItemRenderer<Language> _itemRenderer =
-      newCachingItemRenderer<Language>(
-          (language) => "${language.label} (${language.code})");
+  static ItemRenderer _itemRenderer = newCachingItemRenderer<Language>(
+  (language) => "${language.label} (${language.code})");
+
 
   bool useFactoryRenderer = false;
   bool useItemRenderer = false;
@@ -254,6 +261,10 @@ class MaterialDropdownSelectFullDemoComponent {
   String selectionOption;
 
   void alert(String message) => window.alert(message);
+
+  String languageButtonLabel = 'Select Language';
+  List<Language> get languagesList => _languagesList;
+
 }
 
 class Language implements HasUIDisplayName {
