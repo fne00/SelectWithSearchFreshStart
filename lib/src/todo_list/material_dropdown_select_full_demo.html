@@ -156,6 +156,12 @@
       [options]="languageOptions"
       [itemRenderer]="itemRenderer"
       [(ngModel)]="selectionValue">
+    <div header>
+      <material-select-searchbox
+              label="Search..."
+              [filterable]="languageOptions">
+      </material-select-searchbox>
+    </div>
   </material-dropdown-select>
   <h3>Multiple Selection w/ Angular Forms</h3>
   <material-dropdown-select multi
@@ -163,6 +169,7 @@
       [options]="languageOptions"
       [itemRenderer]="itemRenderer"
       [(ngModel)]="selectionValues">
+
   </material-dropdown-select>
 </section>
 <section>
