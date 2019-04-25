@@ -1,3 +1,4 @@
+import 'package:SelectWithSearchFreshStart/src/SimpleSingleSelectWithSearchComponent/simple_single_select_with_search_component.dart';
 import 'package:angular/angular.dart';
 
 import 'src/todo_list/todo_list_component.dart';
@@ -9,7 +10,7 @@ import 'src/todo_list/todo_list_component.dart';
   selector: 'my-app',
   styleUrls: ['app_component.css'],
   templateUrl: 'app_component.html',
-  directives: [TodoListComponent],
+  directives: [TodoListComponent,SimpleSingleSelectWithSearch],
 )
 class AppComponent {
   // Nothing here yet. All logic is in TodoListComponent.

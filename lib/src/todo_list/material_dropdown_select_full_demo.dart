@@ -23,7 +23,6 @@ import 'package:angular_components/model/selection/selection_options.dart';
 import 'package:angular_components/model/selection/string_selection_options.dart';
 import 'package:angular_components/model/ui/display_name.dart';
 import 'package:angular_components/model/ui/has_factory.dart';
-import 'package:angular/angular.dart';
 import 'package:angular_components/angular_components.dart';
 
 import 'material_dropdown_select_full_demo.template.dart' as demo;
