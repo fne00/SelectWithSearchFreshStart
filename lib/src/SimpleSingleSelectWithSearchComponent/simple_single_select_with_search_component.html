@@ -1,6 +1,6 @@
 <section>
 
-
+<div class="custom-dropdown">
 <material-dropdown-select
         [buttonText]="selectionValue == null ? 'Select Language' : itemRenderer(selectionValue)"
         [options]="languageOptions"
@@ -13,5 +13,11 @@
         </material-select-searchbox>
     </div>
 </material-dropdown-select>
+    <label class="ml-3">{{selectionValue}}</label>
+</div>
+
+
+    <br><br><br>
+
 </section>
 <div style="height:200px"></div>

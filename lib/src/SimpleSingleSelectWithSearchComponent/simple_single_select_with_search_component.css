@@ -23,3 +23,18 @@ li material-fab {
 .done {
     text-decoration: line-through;
 }
+.custom-dropdown .button    {
+    width: 316px;
+    margin-right: 20px;
+
+}
+
+.button.border._ngcontent-zyb-5
+{
+    width:200px;
+}
+
+.ml-3
+{
+    margin-left:30px;
+}
