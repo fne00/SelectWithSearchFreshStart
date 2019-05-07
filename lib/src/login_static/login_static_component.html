@@ -1,0 +1,18 @@
+<section>
+    <h1>{{pageTitle}}</h1>
+
+    <form *ngIf="!showSetPassword">
+        <input [(ngModel)]="username" type="text" placeholder="username">
+        <input [(ngModel)]="password" type="password" placeholder="password">
+
+        <button (click)="handleLogin" >{{buttonText}}</button>
+    </form>
+
+    <form *ngIf="showSetPassword">
+        <input [(ngModel)]="pass" type="text" placeholder="Password">
+        <input [(ngModel)]="cpass" type="text" placeholder="Confirm Password">
+        <button [disabled]="pass== '' || pass != cpass" (click)="saveNewPassword" >{{setPasswordButtonText}}</button>
+    </form>
+
+    <h3 class="warn">{{errorMsg}}</h3>
+</section>
