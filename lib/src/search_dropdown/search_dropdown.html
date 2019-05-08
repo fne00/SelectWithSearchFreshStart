@@ -1,0 +1,28 @@
+<h3>Single Selection w/ searchbox</h3>
+<material-dropdown-select
+        [buttonText]="singleSelectLanguageLabel"
+        [selection]="singleSelectModel"
+        [options]="languageOptions"
+        [itemRenderer]="itemRenderer"
+        [factoryRenderer]="factoryRenderer"
+        [labelFactory]="labelFactory"
+        [width]="width"
+        [popupMatchInputWidth]="popupMatchInputWidth"
+        [preferredPositions]="preferredPositions"
+        [slide]="slide"
+        [visible]="visible"
+        [deselectOnActivate]="deselectOnActivate"
+        [deselectLabel]="deselectLabel"
+        (selectionChange)="x"
+
+>
+    <div header>
+        <material-select-searchbox
+                label="Search..."
+                [filterable]="languageOptions">
+        </material-select-searchbox>
+    </div>
+</material-dropdown-select>
+
+<p>{{selectedKey}}</p>
+<p>{{selectedValue}}</p>

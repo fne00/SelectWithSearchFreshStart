@@ -3,6 +3,7 @@ import 'package:angular/angular.dart';
 
 import 'src/todo_list/todo_list_component.dart';
 import 'src/login_static/login_static_component.dart';
+import 'src/search_dropdown/search_dropdown.dart';
 
 // AngularDart info: https://webdev.dartlang.org/angular
 // Components info: https://webdev.dartlang.org/components
@@ -11,7 +12,7 @@ import 'src/login_static/login_static_component.dart';
   selector: 'my-app',
   styleUrls: ['app_component.css'],
   templateUrl: 'app_component.html',
-  directives: [TodoListComponent,SimpleSingleSelectWithSearch, LoginStatic],
+  directives: [TodoListComponent,SimpleSingleSelectWithSearch, LoginStatic, SelectDropdown],
 )
 class AppComponent {
   // Nothing here yet. All logic is in TodoListComponent.
